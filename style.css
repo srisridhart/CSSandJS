@@ -1,4 +1,4 @@
-boost-job-second/* 
+/* 
 Heading Font Family
 font-family: 'Open Sans', sans-serif;
 
@@ -228,25 +228,62 @@ body.blue-blank-template .iframe-container {
     width: 100%;
 }
 
+.cta-open-search {
+    visibility: hidden;
+}
+
+#AdvancedSearchFilter_PnlKeywords h4 {
+    color: #fc3f35;
+    font-size: 22px;
+    font-family: 'Malva-ExtraBold';
+    text-transform: uppercase;
+    border: 0px;
+    padding: 0 0 5px;
+    position: relative;
+}
+
+#AdvancedSearchFilter_PnlKeywords #btn-find-keywords {
+    border-radius: 0;
+    border-color: #fc3f35 !important;
+    font-family: 'Malva-Bold';
+    font-size: 14px;
+    letter-spacing: 0px;
+    padding: 4px 20px 3px 15px;
+    color: #fff;
+    background-color: #fc3f35;
+    border-width: 0;
+    transform: perspective(1px) translateZ(0);
+    height: 25px;
+    margin: 17px 0 0 0;
+    width: 143px;
+}
+
+#AdvancedSearchFilter_PnlKeywords #sidebar-keyword-box {
+    border-bottom: 5px solid #fc3f35;
+}
+
+.jxt-salary-type .btn {
+    border-bottom: 5px solid #fc3f35 !important;
+}
 
 /* custom radio button and checkbox for ie */
-
 .custom-checkbox,
 .custom-radio {
     position: relative;
 }
-
 .custom-checkbox input[type="checkbox"],
 .custom-radio input[type="radio"] {
     opacity: 0;
-    position: relative!important;
-    z-index: 11;
+    position: absolute !important;
+    z-index: 15;
 }
-
 label .custom-radio input[type="radio"],
 label .custom-checkbox input[type="checkbox"] {
-    display: none !important;
-    position: static!important;
+    display: inline-block !important;
+    position: absolute !important;
+}
+html.browser-MSIE .marktingCheckBox label, html.browser-edge .marktingCheckBox label {
+    top: -15px !important;
 }
 
 .custom-radio span:before {
@@ -269,6 +306,15 @@ label .custom-checkbox input[type="checkbox"] {
     left: 0;
 }
 
+.custom-checkbox span{
+    height: 30px;
+    width: 30px;
+    min-height: 30px;
+    min-width: 30px;
+    background: #FEE43D!important;
+    display: inline-block;
+    position: relative;
+}
 .custom-checkbox span:before {
     font-family: "FontAwesome";
     font-style: normal;
@@ -314,6 +360,26 @@ html.browser-MSIE span.custom-checkbox{
     background: #91db5a !important;
     color: #fff;
 }
+
+#content .custom-checkbox input[type='checkbox'][disabled]~span{
+    background: rgba(0, 0, 0, 0.5) !important;
+    opacity: 0.4; 
+    color: rgba(0, 0, 0, 0.5);
+}
+#content .custom-checkbox input[type='checkbox'][disabled]~span:before{
+    opacity: 0;
+}
+#content .custom-checkbox input[type="checkbox"][disabled]:checked~span:before {
+    content: '\f00c';
+    color: #fff;
+    opacity: 0.4;
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+#content .custom-checkbox input[type='checkbox'][disabled]{
+    opacity: 0 !important;
+}
+
 .question_wrap input[type="checkbox"] + span {
     position: relative;
     top: 6px;
@@ -2412,7 +2478,6 @@ textarea.form-control::-moz-placeholder,
     display: inline-block;
     font-family: 'Malva-ExtraBold';
     WIDTH: 100%;
-    font-size: 30px;
 }
 
 .test-author {
@@ -2560,7 +2625,8 @@ textarea.form-control::-moz-placeholder,
     display: none;
 }
 .table-responsive {
-    overflow-x: scroll;
+    overflow-x: auto;
+    margin-bottom: 10px !important;
 }
 .member-dashboard-content .table-responsive {
     overflow-x: visible;
@@ -2588,6 +2654,15 @@ textarea.form-control::-moz-placeholder,
     position: relative;
     top: -10px;
 }
+
+#AdvancedSearchFilter_PnlKeywords {
+    margin-bottom: 20px !important;
+}
+
+li#AdvancedSearchFilter_PnlClassification ul {
+    margin-bottom: 10px;
+}
+
 
 @media (min-width: 768px) {
     .toogle-search {
@@ -2621,6 +2696,22 @@ textarea.form-control::-moz-placeholder,
     .navbar-nav>li>.dropdown-menu.lg-menu a,
     .navbar-nav>li>.dropdown-menu.md-menu a {
         white-space: normal;
+    }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    .hidden-sm{
+        display:block !important;
+    }
+    .search-term-tag {
+        float: left;
+        margin-right: 30px !important;
+    }
+    .search-term-tag h3 {
+        margin-top: 18px !important;
+    }
+    .favourite-search-button {
+        clear: both;
     }
 }
 
@@ -2813,30 +2904,43 @@ body [action*="/personality-"] #footer{
 #widget-search {
     position: relative;
     z-index: 1000;
-    margin-top: -14px;
+}
+#widget-search .field-wrapper {
+    float: left;
+    width: calc(100% - 75px);
+}
+#widget-search .form-group {
+    margin-bottom: 0px;
+    float: left;
+}
+#widget-search .search-field {
+    width: 31.7%;
+    margin-right: 1.45%;
+}
+#widget-search .form-group label {
+    display: none
+}
+#widget-search .search-button{
+    width: 75px;
 }
 
 #widget-search .form-group {
     margin-bottom: 10px;
 }
 
-#widget-search .form-group label {
-    display: none
-}
-
 #btn-widget-search {
     color: #fff;
     background-color: #fc3f35;
     border: none;
-    padding: 19px 42px 19px;
+   	padding: 15px 10px;
     display: inline-block;
-    width: auto;
+    width: 100%;
+	min-width: 80px;
     line-height: 1;
     border-radius: 0;
-    font-size: 26px;
+    font-size: 14px;
     font-family: 'Malva-Bold';
-    margin-top: 14px;
-    height: auto;
+    height: 45px;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px transparent;
@@ -2884,12 +2988,12 @@ body [action*="/personality-"] #footer{
 }*/
 
 #widget-search input[type="text"] {
-    padding: 17px 18px 12px;
-    text-indent: 3px;
+    padding: 13px 18px 12px;
+    text-indent: 0;
     line-height: 1;
-    height: 60px;
+    height: 40px;
     border-radius: 0;
-    font-size: 26px;
+    font-size: 20px;
     background: #fff;
     color: #3a3e3f;
     font-family: 'Malva-MediumItalic';
@@ -2920,13 +3024,13 @@ body [action*="/personality-"] #footer{
     position: relative;
     text-indent: 1px;
     text-overflow: '';
-    height: 66px;
+    height: 40px;
     padding: 13px 21px 12px;
     width: 100%;
     cursor: pointer;
     border-radius: 0;
     font-size: 26px;
-    border-bottom: 5px solid #021464;
+    box-shadow: 0 5px 0 #021464;
 }
 
 #widget-search .custom-select .search-widget {
@@ -2935,7 +3039,7 @@ body [action*="/personality-"] #footer{
     border-radius: 0;
     color: #3a3e3f;
     font-family: 'Malva-MediumItalic';
-    padding-bottom: 5px;
+    padding-bottom: 0px;
 }
 
 .sbHolder:before,
@@ -3003,9 +3107,10 @@ body [action*="/personality-"] #footer{
 
 #widget-search .form-group p a,
 #footer-widget .form-group p a {
-    font-size: 13px;
+    font-size: 9px;
     color: #fff;
-    font-family: 'Malva-ExtraBold';
+    font-family: 'Malva-Bold';
+    letter-spacing: 1px;
     margin: 10px 0 0;
     padding: 1px 3px 0;
     white-space: nowrap;
@@ -3026,6 +3131,74 @@ body [action*="/personality-"] #footer{
     text-align: right;
 }
 
+/* One touch browse */
+.onetouch-jobbrowse{ background:#fff; margin-bottom: 80px; font-weight: 600; }
+.onetouch-jobbrowse .tab-pane h3{ font-family: 'Malva-ExtraBold'; }
+.onetouch-jobbrowse .nav-tabs { color: #fff; font-weight: bold; text-transform: uppercase; list-style: none; margin: -32px 0 0; padding: 0; display: flex; border: none }
+.onetouch-jobbrowse .nav-tabs li { flex-grow: 1; float: none; margin-bottom: 0; position: relative; border-top: 4px solid transparent; text-align: center }
+.onetouch-jobbrowse .nav-tabs li.lbl label { background-color: #000; display: block; padding: 10px }
+.onetouch-jobbrowse .nav-tabs li a { font-family: Malva-Bold; padding: 10px; background: #ff3d2b; color: white; display: block; border: none; border-radius: 0; margin: 0 }
+.onetouch-jobbrowse .nav-tabs li a:hover,.onetouch-jobbrowse .nav-tabs li a:focus { background: #db2e06 }
+.onetouch-jobbrowse .nav-tabs li.active { border-top-color: #ff3d2b;}
+.onetouch-jobbrowse .nav-tabs li.active a { background: #fff; color: #000; border: none }
+.onetouch-jobbrowse .tab-content { margin-bottom: 40px; position: relative; }
+.onetouch-jobbrowse .tab-pane{ border-bottom: 4px solid #ff3d2b; padding-bottom: 15px; position: absolute; top: 0; left: 0; display: block; visibility: hidden; }
+.onetouch-jobbrowse .tab-pane.active{ position: relative; visibility: visible; }
+.onetouch-jobbrowse .tab-pane .tab-pane-wrap{ padding: 15px 15px 0; height: 215px; overflow: hidden; }
+.onetouch-jobbrowse .tab-pane.expand .tab-pane-wrap{ height: auto }
+.onetouch-jobbrowse .tab-pane ul { list-style: none; padding: 0; margin: 0; column-count: 3; column-gap: 20px; }
+.onetouch-jobbrowse .tab-pane ul li { margin-bottom: 7px }
+.onetouch-jobbrowse .tab-pane ul li a { color: #011728 }
+.onetouch-jobbrowse a .job-count { color: #7b8287; font-size: 10px; padding-left: 4px; position: relative; top: -2px; }
+.onetouch-jobbrowse .tab-pane ul li a:hover,.onetouch-jobbrowse .tab-pane ul li a:focus { color: #ff3d2b }
+.onetouch-jobbrowse .toggle-btn { background: #ff3d2b; border-radius: 0; line-height: 1; text-align: center; display: block; width: 100px; color: white; cursor: pointer; position: absolute; bottom: -27px; left: 50%; margin-left:-50px; }
+.onetouch-jobbrowse .toggle-btn:hover,.onetouch-jobbrowse .toggle-btn:focus { background: #db2e06; color: #fff }
+.onetouch-jobbrowse .other-links { clear: both; margin: 20px 0 0; padding-bottom: 60px }
+.onetouch-jobbrowse .other-links::after { content: ""; display: table; clear: both }
+.onetouch-jobbrowse .job-data { float: left; position: relative; padding-right: 145px; margin-right: 20px }
+.onetouch-jobbrowse .link-wrap { float: left; padding-top: 17px }
+.onetouch-jobbrowse .job-data label { position: relative }
+.onetouch-jobbrowse .job-data label span { display: inline; background: #021464; color: white; padding: 5px 10px; line-height: 1.3; margin-left: 0; text-transform: uppercase; font-size: 13px }
+.job-data .count-num { font-size: 50px; color: #ff3d2b; font-family: Malva-ExtraBold; line-height: 1; position: absolute; right: 0; top: 0 }
+.link-wrap span { padding: 10px }
+.link-wrap span a{ color: #ff3d2b; }
+.link-wrap span a:hover, .link-wrap span a:focus{ color: #db2e06; }
+.link-wrap span:after{ content: '|'; position: relative; left: 8px; }
+.link-wrap span:last-child:after{ display: none;}
+.hub-links{ margin-bottom:28px; }
+
+
+@media (max-width:992px){
+    .onetouch-jobbrowse .nav-tabs{ font-size:12px; margin-left: -25px; margin-right: -25px; }
+    .onetouch-jobbrowse .tab-pane ul{column-count:2;}
+    .onetouch-jobbrowse .other-links{ padding-bottom: 40px; }
+    .onetouch-jobbrowse .job-data{ float: none; margin: 0 auto; padding-right: 0; text-align: center; }
+    .onetouch-jobbrowse .job-data label{ padding-right: 15px; text-align: left; }
+    .job-data .count-num{ position: static; }
+    .onetouch-jobbrowse .link-wrap{ float: none; }
+}
+@media (max-width:767px){
+    .onetouch-jobbrowse .nav-tabs{ display: block; margin-left:0; margin-right:0; font-size: 16px; }
+    .onetouch-jobbrowse .nav-tabs li{ text-align: left; margin-bottom: 2px; border-top-color: #ff3d2b; }
+    .onetouch-jobbrowse .nav-tabs li.lbl{ border-top: none; }
+    .onetouch-jobbrowse .nav-tabs li a{ padding-left: 40px; }
+    .onetouch-jobbrowse .tab-content{ margin: 0 0 60px; }
+    .onetouch-jobbrowse .tab-pane.active{ margin-bottom: 20px; }
+    .onetouch-jobbrowse .tab-pane .tab-pane-wrap{ height: 185px; padding: 15px 10px; }
+    .onetouch-jobbrowse .tab-pane ul{column-count:1;  }
+    .onetouch-jobbrowse .link-wrap{ text-align: center; }
+    .link-wrap span{ display: block; padding: 2px; }
+    .link-wrap span:after{ display: none; }
+    .nav-tabs.mobile-tab li.active{ display: none; }
+    .onetouch-jobbrowse .nav-tabs li a:before{ content: '\f105'; font: bold 24px/1 fontawesome; position: absolute; left: 15px; top: 7px; }
+    .onetouch-jobbrowse .nav-tabs li.active a:before{ content: '\f107'; color: #ff3d2b; left: 11px; }
+}
+@media (max-width:480px){
+    .onetouch-jobbrowse{ background: #ffffff; margin-bottom: 80px; }
+    .onetouch-jobbrowse .other-links{ padding-bottom: 30px; }
+    .onetouch-jobbrowse .job-data label{ padding-right: 0; }
+    .job-data .count-num{ display: block; }
+}
 
 /* Home Content */
 
@@ -3482,8 +3655,8 @@ body [action*="/personality-"] #footer{
 }
 
 .dynamic-content-holder {
-    /* overflow: hidden;
-    min-height: 270px; */
+    overflow: hidden;
+    min-height: 270px;
 }
 
 .dynamic-content-holder h1 {
@@ -4519,8 +4692,7 @@ input.mini-new-buttons {
 }
 
 #side-drop-menu {
-    margin-bottom: 2em;
-    margin-top: 2em;
+    margin-bottom: 30px;
 }
 
 .links-2 li,
@@ -4634,6 +4806,14 @@ select#areaIDs{
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+#divNewsletter{
+    display: block !important;
+}
+
+form[action='./register.aspx'] #divNewsletter {
+    display: block !important;
 }
 
 .radio label input,
@@ -4895,17 +5075,12 @@ span#ctl00_ContentPlaceHolder1_ctmEmailAddress {
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
-        height: 746px;
-        position: relative;
+    height: 425px;
+    position: relative;
 }
 .slide-content {
     position: absolute;
-    transform: translate(0, -50%);
-    -webkit-transform: translate(0, -50%);
-    -moz-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    -o-transform: translate(0, -50%);
-    top: 45.5%;
+   	top: 37px;
     width: 100%;
     left: 0;
     right: 0;
@@ -4914,6 +5089,7 @@ span#ctl00_ContentPlaceHolder1_ctmEmailAddress {
 
 .slide-content h1 {
     background: none;
+    margin-bottom: 40px;
 }
 .slide-content h1 span{
     font-family: 'Malva-ExtraBold';
@@ -4921,25 +5097,15 @@ span#ctl00_ContentPlaceHolder1_ctmEmailAddress {
     background: #24d4ee;
     padding: 9px 21px 12px;
     color: #fff;
-    font-size: 55px;
-    line-height: 74px;
+    font-size: 52px;
+    line-height: 72px;
     margin-left: 81px;
-}
-.slide-content h1 span:first-child {
-    padding-top: 20px;
-}
-.slide-content h1 span:last-child {
-    padding-bottom: 33px;
-}
-.slide-content h1 span:last-child {
-    padding-bottom: 30px;
 }
 .slide-content .container{ padding-top: 20px;}
 
 .banner-text {
     color: #fff;
     position: relative;
-    top: -108px;
     padding-left: 88px;
     font-size: 24px;
     font-family: 'Malva-ExtraBold';
@@ -6624,7 +6790,7 @@ a.favourite.hover {
 
 #myJobsList {
     padding-bottom: 69px;
-    overflow: initial;
+    overflow: visible;
     padding-top: 40px;
     text-align: center;
 }
@@ -8092,8 +8258,7 @@ span.jxt-result-loc {
 }
 
 li#AdvancedSearchFilter_PnlSalary {
-    margin-top: 31px;
-    padding-bottom: 0px;
+   padding-bottom: 0px;
 }
 
 #AdvancedSearchFilter_PnlSalary .sbHolder {
@@ -8587,13 +8752,9 @@ body.personality-test .leftnavigate,
 #aspnetForm[action*="companysearch"] .leftnavigate,
 #aspnetForm[action*="./?advertiserid="] .ad-sec,
 #aspnetForm[action*="./?advertiserid="] .widget-block,
-#aspnetForm[action*="./?advertiserid="] .leftnavigate,
-#aspnetForm[action*="./?companyid="] .ad-sec,
-#aspnetForm[action*="./?companyid="] .widget-block,
-#aspnetForm[action*="./?companyid="] .leftnavigate {
+#aspnetForm[action*="./?advertiserid="] .leftnavigate {
     display: none!important;
 }
-
 
 body [action*="/personality-"] #dynamic-container {
     background-color: #021464;
@@ -8607,16 +8768,20 @@ body [action*="/personality-"] #dynamic-container div{
         height: auto!important;
     }
     body [action*="/personality-"] #weirdly-iframe{
-        height: 750px;
+        height: 830px;
     }
 }
 @media (max-width:767px){
     
     body [action*="/personality-"] #weirdly-iframe{
-        /* height: 440px; */
+        height: 720px;
         min-height: 100%;
     }
+    body [action*="/personality-"] #prefix_footer-container{
+        height: 1040px;
+    }
 }
+
 .ad-block {
     width: 100%;
     max-width: 300px;
@@ -8659,8 +8824,6 @@ body [action*="/personality-"] #dynamic-container div{
     padding-top: 20px;
 }
 
-li#AdvancedSearchFilter_PnlWorkType,
-li#AdvancedSearchFilter_PnlLocation,
 li#AdvancedSearchFilter_PnlCompany {
     display: none;
 }
@@ -8670,8 +8833,7 @@ li#AdvancedSearchFilter_PnlCompany {
 }
 
 body[class*="member/"] #footer .leftnavigate,
-body[class*="advertiser/"] #footer .leftnavigate,
-body[class*="company/"] #footer .leftnavigate {
+body[class*="advertiser/"] #footer .leftnavigate {
     display: none!important;
 }
 
@@ -8703,17 +8865,43 @@ li#AdvancedSearchFilter_PnlClassification ul::-webkit-scrollbar-track {
     border-radius: 10px;
     background-color: #ffffff;
 }
+li#AdvancedSearchFilter_PnlLocation ul{
+    max-height: 230px;
+    overflow: auto;
+}
+li#AdvancedSearchFilter_PnlLocation ul::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+li#AdvancedSearchFilter_PnlLocation ul::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+li#AdvancedSearchFilter_PnlLocation ul::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+li#AdvancedSearchFilter_PnlLocation ul::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+li#AdvancedSearchFilter_PnlLocation ul::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffff;
+}
 .jobtype-search a {
     padding: 0;
     display: inline-block;
     border: 0px !important;
     position: relative;
-    text-transform: capitalize;
-    font-size: 14px;
+    text-transform: none;
+    font-size: 14pt;
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
     color: #fc3f35;
-    padding-left: 20px;
+    padding-left: 25px;
+}
+
+.favourite-search-button {
+    padding-bottom: 12px;
 }
 
 .jobtype-search a:hover,
@@ -8749,18 +8937,13 @@ li#AdvancedSearchFilter_PnlClassification ul::-webkit-scrollbar-track {
     color: #fff;
     font-family: 'Malva-ExtraBold';
     font-size: 30px;
-    margin-bottom: 6px;
+    margin: 30px 0 30px 0;
+    line-height: 30pt;
 }
 
 .left-head span {
     background: #fc3f35;
     padding: 8px 15px;
-    line-height: 1.5;
-}
-
-.jobtype-search {
-    margin-bottom: 58px;
-    margin-top: 41px;
 }
 
 #side-drop-menu li a {
@@ -8775,10 +8958,6 @@ li#AdvancedSearchFilter_PnlClassification ul::-webkit-scrollbar-track {
 
 #side-drop-menu li {
     margin-bottom: 4px;
-}
-
-#side-drop-menu>li {
-    margin-bottom: 25px;
 }
 
 #side-drop-menu li ul li a {
@@ -8870,7 +9049,6 @@ li#AdvancedSearchFilter_PnlClassification ul::-webkit-scrollbar-track {
 .left-head span {
     background: #fc3f35;
     padding: 7px 9px 6px 11px;
-    line-height: 1.4;
     text-transform: uppercase;
 }
 
@@ -8939,6 +9117,7 @@ body.news-result-page #footer .industry-sec {
 
 .industry-sec {
     margin-bottom: 40px;
+    margin-top: 30px;
 }
 
 .industry-sec:after {
@@ -9035,7 +9214,10 @@ body.news-result-page #footer .industry-sec {
 .system-banner {
     height: auto;
     background: #021464;
+    background-image: none;
+    background-color: #021464;
     color: #fff;
+    bottom: 0px;
 }
 
 .system-banner h1 {
@@ -9057,7 +9239,6 @@ body.news-result-page #footer .industry-sec {
 
 .news-result-page .subtitle {
     margin-left: -123px;
-    top: 15px;
 }
 
 .full-width-container #dynamic-container.container,
@@ -9651,7 +9832,7 @@ span.toggle-secHt:focus {
     content: '\f078';
     font: 20px/1 FontAwesome;
     position: absolute;
-    right: 5px;
+    right: -1px;
     top: 0px;
     cursor: pointer;
 }
@@ -9877,7 +10058,7 @@ span.toggle-secHt:focus {
 }
 
 .widget-block {
-    margin: 60px 0;
+    margin: 30px 0;
 }
 
 .widget-block h2,
@@ -9912,7 +10093,6 @@ span.toggle-secHt:focus {
 
 .job-pricing .inner-banner {
     background-image: url(../images/pricing-banenr.jpg);
-    height: 200px;
 }
 
 .job-pricing .innerbanner-search {
@@ -10140,86 +10320,6 @@ small.sm-dec{
     margin-left: 37px;
 }
 
-/*new boost job css for small section*/
-.boost-job-first {
-    background: #f3f2ec;
-    padding: 30px 0px 0px 00px;
-    font-size: 16px;
-    font-weight: 600;
-    margin-left: 0px;
-    color: #011728;
-    width: 100%;    
-    height: 808px;
-	z-index:3;
-}
-
-.boost-job-second {
-    background: #f3f2ec;
-    padding: 30px 0px 0px 0px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #011728;
-    width: 103%;    
-    height: 808px;
-    margin-left: -25px;
-	z-index:3;
-}
-
-.boost-job-second h2 span {
-    background: #fee43d;
-    color: #fc3f35;
-    font-size: 55px;
-    font-family: 'Malva-ExtraBold';
-    padding: 10px 15px;
-    line-height: 1.35;
-}
-
-.boost-job-second h2 {
-    margin-top: -110px;
-    margin-bottom: 16px;
-    margin-left: -141px;
-}
-
-.other-job-widget {
-    background: #f3f2ec;
-    padding: 30px 0px 0px 0px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #011728;
-    width: 100%;    
-    height: 100%;
-    margin-left: 14px;
-    z-index:3;
-    margin-top: 120px;
-    margin-bottom: 50px;
-}
-
-.other-job-widget h2 span {
-    background: #fee43d;
-    color: #fc3f35;
-    font-size: 55px;
-    font-family: 'Malva-ExtraBold';
-    padding: 10px 15px;
-    line-height: 1.35;
-}
-
-.other-job-widget h2 {
-    margin-top: -110px;
-    margin-bottom: 16px;
-    margin-left: -419px;
-    width:101%;
-}
-
-.spacer
-{
-    background: #f3f2ec;
-    padding: 30px 30px 30px 30px;    
-    width: 2%;    
-    height: 100%;
-	z-index:3;
-}
-
-/*boost job used big section*/
 .boost-job {
     background: #f3f2ec;
     padding: 98px 0 9px;
@@ -10326,469 +10426,6 @@ small.sm-dec{
     color: #011728;
 }
 
-.boost-table-box {
-    padding: 20px 0 0;
-    box-sizing: border-box;
-    background: #fff;
-    margin-bottom: 30px; 
-    margin-left: -5px;
-    height: 100%;
-    width: 437px;
-}
-
-.boost-table-secondary img{
-    width: 74%;
-    margin-left: 70px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.boost-table-third img{
-    width: 75%;
-    margin-left: 70px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.boost-table-box img{
-    width: 85%;
-    margin-left: 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.boost-table-big img{
-    width: 74%;
-    margin-left: 70px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.other-job-table img{
-    width: 85%;
-    margin-left: 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.nzherald-job-table img{
-    width: 85%;
-    margin-left: 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.boost-table-box h3 span{
-    background: #fee43d;
-    color: #fc3f35;
-    font-size: 20px;
-    padding: 10px 15px 6px;
-    font-family: 'Malva-ExtraBold';
-}
-
-.boost-table-box h3 {
-    padding: 20px 0px 0px 0px;
-    text-align: center;
-}
-
-.boost-table-box ul {
-    padding: 15px 15px 27px;
-    font-size: 12px;
-    font-weight: normal;    
-    margin-bottom: 12px;
-    list-style: none;
-}
-
-.boost-table-box ul li {   
-    vertical-align: top;
-    font-size: 16px;    
-    font-family: 'Open Sans';
-    line-height: 20px;
-    font-weight: bold;
-    color: #011728;
-    letter-spacing: 0px;
-    text-align: left;
-}
-
-.boost-table-box p{
-    font-family: 'Open Sans';
-    padding: 40px 40px 40px 0px;    
-    color: red;
-    font-size: xx-large;    
-    text-align: center;
-    font-weight: bold;
-}
-
-.boost-table-box input{
-    width: 85%;
-    font-family: 'Open Sans';
-    color: white;
-    background-color: red;
-    font-size: x-large;
-    border-bottom: none;
-    margin-left: 32px;
-    margin-bottom: 20px;    
-    margin-right: 20px;
-}
-
-.boost-table-box ul li:before {
-    content: '✓';
-    color: red;
-    font-size: x-large;
-}
-
-.boost-table-secondary {
-    padding: 20px 0 0;
-    box-sizing: border-box;
-    background: #fff;        
-    height: 100%;
-    width: 468px;
-    margin-bottom:30px;
-    margin-top:20px;
-    margin-left:-143px;
-}
-
-.boost-table-secondary h3 span{
-    background: #fee43d;
-    color: #fc3f35;
-    font-size: 20px;
-    padding: 10px 15px 6px;
-    font-family: 'Malva-ExtraBold';
-}
-
-.boost-table-secondary h3 {
-    padding: 20px 0px 0px 0px;
-    text-align: center;
-}
-
-.boost-table-secondary ul {
-    padding: 15px 15px 27px;
-    font-size: 12px;
-    font-weight: normal;    
-    margin-bottom: 12px;
-    list-style: none;
-}
-
-.boost-table-secondary ul li {   
-    vertical-align: top;
-    font-size: 16px;    
-    font-family: 'Open Sans';
-    line-height: 20px;
-    font-weight: bold;
-    color: #011728;
-    letter-spacing: 0px;
-    text-align: left;
-}
-
-.boost-table-secondary p{
-    font-family: 'Open Sans';
-    padding: 9px 40px 40px 0px;    
-    color: red;
-    font-size: xx-large;    
-    text-align: center;
-    font-weight: bold;
-}
-
-.boost-table-secondary input{
-    width: 85%;
-    font-family: 'Open Sans';
-    color: white;
-    background-color: red;
-    font-size: x-large;
-    border-bottom: none;
-    margin-left: 32px;
-    margin-bottom: 20px;    
-    margin-right: 20px;
-}
-
-.boost-table-secondary ul li:before {
-    content: '✓';
-    color: red;
-    font-size: x-large;
-}
-
-
-.boost-table-third {
-    padding: 20px 0 0;
-    box-sizing: border-box;
-    background: #fff;        
-    height: 100%;
-    width: 484px;
-    margin-bottom:30px;
-    margin-top:20px;
-    margin-left:-58px;
-}
-
-.boost-table-third h3 span{
-    background: #fee43d;
-    color: #fc3f35;
-    font-size: 20px;
-    padding: 10px 15px 6px;
-    font-family: 'Malva-ExtraBold';
-}
-
-.boost-table-third h3 {
-    padding: 20px 0px 0px 0px;
-    text-align: center;
-}
-
-.boost-table-third ul {
-    padding: 15px 15px 27px;
-    font-size: 12px;
-    font-weight: normal;    
-    margin-bottom: 12px;
-    list-style: none;
-}
-
-.boost-table-third ul li {   
-    vertical-align: top;
-    font-size: 16px;    
-    font-family: 'Open Sans';
-    line-height: 20px;
-    font-weight: bold;
-    color: #011728;
-    letter-spacing: 0px;
-    text-align: left;
-}
-
-.boost-table-third p{
-    font-family: 'Open Sans';
-    padding: 3px 40px 16px 0px;    
-    color: red;
-    font-size: xx-large;    
-    text-align: center;
-    font-weight: bold;
-}
-
-.boost-table-third input{
-    width: 85%;
-    font-family: 'Open Sans';
-    color: white;
-    background-color: red;
-    font-size: x-large;
-    border-bottom: none;
-    margin-left: 32px;
-    margin-bottom: 20px;    
-    margin-right: 20px;
-}
-
-.boost-table-third ul li:before {
-    content: '✓';
-    color: red;
-    font-size: x-large;
-}
-
-.other-job-table {
-    padding: 20px 0 0;
-    box-sizing: border-box;
-    background: #fff;        
-    height: 100%;
-    width: 100%;
-    margin-bottom:30px;
-    margin-top:20px;
-    margin-left:-70px;
-}
-
-.other-job-table h3 span{
-    background: #fee43d;
-    color: #fc3f35;
-    font-size: 20px;
-    padding: 10px 15px 6px;
-    font-family: 'Malva-ExtraBold';
-}
-
-.other-job-table h3 {
-    padding: 20px 0px 0px 0px;
-    text-align: center;
-}
-
-.other-job-table ul {
-    padding: 15px 15px 27px;
-    font-size: 12px;
-    font-weight: normal;    
-    margin-bottom: 12px;
-    list-style: none;
-}
-
-.other-job-table ul li {   
-    vertical-align: top;
-    font-size: 16px;    
-    font-family: 'Open Sans';
-    line-height: 20px;
-    font-weight: bold;
-    color: #011728;
-    letter-spacing: 0px;
-    text-align: left;
-}
-
-.other-job-table p{
-    font-family: 'Open Sans';
-    padding: 40px 40px 40px 0px;    
-    color: red;
-    font-size: xx-large;    
-    text-align: center;
-    font-weight: bold;
-}
-
-.other-job-table input{
-    width: 85%;
-    font-family: 'Open Sans';
-    color: white;
-    background-color: red;
-    font-size: x-large;
-    border-bottom: none;
-    margin-left: 20px;
-    margin-bottom: 20px;    
-    margin-right: 20px;
-}
-
-.other-job-table ul li:before {
-    content: '✓';
-    color: red;
-    font-size: x-large;
-}
-
-.nzherald-job-table {
-    padding: 20px 0 0;
-    box-sizing: border-box;
-    background: #fff;        
-    height: 100%;
-    width: 100%;
-    margin-bottom:30px;
-    margin-top:20px;
-    margin-left:-70px;
-}
-
-.nzherald-job-table h3 span{
-    background: #fee43d;
-    color: #fc3f35;
-    font-size: 20px;
-    padding: 10px 15px 6px;
-    font-family: 'Malva-ExtraBold';
-}
-
-.nzherald-job-table h3 {
-    padding: 20px 0px 0px 0px;
-    text-align: center;
-}
-
-.nzherald-job-table ul {
-    padding: 15px 15px 27px;
-    font-size: 12px;
-    font-weight: normal;    
-    margin-bottom: 12px;
-    list-style: none;
-}
-
-.nzherald-job-table ul li {   
-    vertical-align: top;
-    font-size: 16px;    
-    font-family: 'Open Sans';
-    line-height: 20px;
-    font-weight: bold;
-    color: #011728;
-    letter-spacing: 0px;
-    text-align: left;
-}
-
-.nzherald-job-table p{
-    font-family: 'Open Sans';
-    padding: 40px 40px 40px 0px;    
-    color: red;
-    font-size: xx-large;    
-    text-align: center;
-    font-weight: bold;
-}
-
-.nzherald-job-table input{
-    width: 85%;
-    font-family: 'Open Sans';
-    color: white;
-    background-color: red;
-    font-size: x-large;
-    border-bottom: none;
-    margin-left: 20px;
-    margin-bottom: 20px;    
-    margin-right: 20px;
-}
-
-.nzherald-job-table ul li:before {
-    content: '✓';
-    color: red;
-    font-size: x-large;
-}
-
-
-.boost-table-big {
-    padding: 20px 0 0;
-    box-sizing: border-box;
-    background: #fff;        
-    height: 100%;
-    width: 465px;
-    margin-bottom:30px;
-    margin-top:20px;
-    margin-left:42px;
-}
-
-.boost-table-big h3 span{
-    background: #fee43d;
-    color: #fc3f35;
-    font-size: 20px;
-    padding: 10px 15px 6px;
-    font-family: 'Malva-ExtraBold';
-}
-
-.boost-table-big h3 {
-    padding: 20px 0px 0px 0px;
-    text-align: center;
-}
-
-.boost-table-big ul {
-    padding: 15px 15px 27px;
-    font-size: 12px;
-    font-weight: normal;    
-    margin-bottom: 12px;
-    list-style: none;
-}
-
-.boost-table-big ul li {   
-    vertical-align: top;
-    font-size: 16px;    
-    font-family: 'Open Sans';
-    line-height: 20px;
-    font-weight: bold;
-    color: #011728;
-    letter-spacing: 0px;
-    text-align: left;
-}
-
-.boost-table-big p{
-    font-family: 'Open Sans';
-    padding: 0px 40px 34px 0px;    
-    color: red;
-    font-size: xx-large;    
-    text-align: center;
-    font-weight: bold;
-}
-
-.boost-table-big input{
-    width: 85%;
-    font-family: 'Open Sans';
-    color: white;
-    background-color: red;
-    font-size: x-large;
-    border-bottom: none;
-    margin-left: 32px;
-    margin-bottom: 20px;    
-    margin-right: 20px;
-}
-
-.boost-table-big ul li:before {
-    content: '✓';
-    color: red;
-    font-size: x-large;
-}
-
 .btn.btn-primary.boost-btn,
 .offer-footer .btn {
     font-size: 26px;
@@ -10843,17 +10480,6 @@ small.sm-dec{
 
 .nz-content p {
     min-height: auto !important;
-    font-size: 30px;
-    font-family: 'open sans';
-    font-weight: bold;
-}
-
-.nz-content span {
-    min-height: auto !important;
-    font-size: 30px;
-    font-family: 'open sans';
-    font-weight: bold;
-    color: red;
 }
 
 .nz-news .btn.btn-primary {
@@ -10924,7 +10550,7 @@ small.sm-dec{
 
 .regional-logo {
     padding-left: 0;
-    padding-top: 30px;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -10936,7 +10562,7 @@ small.sm-dec{
 
 .regional-cntc .nz-content {
     border-bottom: 0px;
-    padding: 60px 0 60px;
+    padding: 24px 0 142px;
 }
 
 
@@ -11076,8 +10702,7 @@ body[class*="companysearch"] #content,
 body.company-detail-page #content {
     width: 100%;
 }
-#aspnetForm[action*="./?advertiserid="] .homenews-footer,
-#aspnetForm[action*="./?companyid="] .homenews-footer{
+#aspnetForm[action*="./?advertiserid="] .homenews-footer{
     display: block;
     margin-top: 0;
     padding-bottom: 70px;
@@ -12487,6 +12112,17 @@ ul.boardy-dropdown li.active a{
     min-height: 700px;
 }
 
+.cta-open-search {
+    background-color: #000f65 !important;
+    width: 147px;
+    font-size: 11pt;
+    height: 41px;
+    padding: 2px 10px 25px 20px !important;
+    visibility: hidden;
+    cursor: pointer;
+    position: absolute;
+}
+
 
 /* Prevents Mobile Safari from bumping up font sizes in landscape */
 @media only screen and (min-device-width: 992px) {
@@ -12625,7 +12261,7 @@ ul.boardy-dropdown li.active a{
         line-height: 244px;
     }
     #myJobsList .imgwrap img{
-        max-height: 244px;
+        max-height: 14.95em
     }
     body.company-detail-page #myJobsList .jobbg{
         height: 36px;
@@ -12637,11 +12273,17 @@ ul.boardy-dropdown li.active a{
         margin-left: -18px;
         margin-right: -18px;
     }
+    #btn-widget-search {
+       width: auto;
+    }
 }
 @media (max-width: 910px) and (min-width: 768px){
     .sitesearch-head.open-search .searchbar{
         line-height: 1;
         padding-top: 15px;
+    }
+    #btn-widget-search {
+       width: auto;
     }
 }
 @media (max-width: 830px) and (min-width: 768px) {
@@ -12845,9 +12487,6 @@ ul.boardy-dropdown li.active a{
     .career-news .sec-btn {
         top: 86px;
     }
-    .left-head {
-        font-size: 26px;
-    }
     #side-drop-menu li a {
         font-size: 17px;
     }
@@ -12935,115 +12574,6 @@ ul.boardy-dropdown li.active a{
     .boost-table ul li:nth-of-type(1) {
         width: 26%;
     }
-    .boost-table-box h3 span{
-        font-size: 13px;
-    }
-    .boost-table-box img{
-        width: 70%;
-        margin-left: 95px;
-    } 
-    .boost-table-box ul{
-        padding: 15px 0px 27px 0px;
-        margin-left: 85px;
-    }
-
-    .boost-table-secondary h3 span{
-        font-size: 13px;
-    }
-    .boost-table-secondary img{
-        width: 70%;
-        margin-left: 37px;
-    } 
-    .boost-table-secondary ul{
-        padding: 15px 0px 27px 0px;
-        margin-left: 22px;
-    }
-
-    .boost-table-third h3 span{
-        font-size: 13px;
-    }
-    .boost-table-third img{
-        width: 70%;
-        margin-left: 37px;
-    } 
-    .boost-table-third ul{
-        padding: 15px 0px 27px 0px;
-        margin-left: 22px;
-    }
-
-    .boost-table-big h3 span{
-        font-size: 13px;
-    }
-    .boost-table-big img{
-        width: 70%;
-        margin-left: 37px;
-    } 
-    .boost-table-big ul{
-        padding: 15px 0px 27px 0px;
-        margin-left: 22px;
-    }
-
-
-
-
-    .boost-job-second h2 span{
-        font-size: 40px;
-    }
-    .boost-job-second h2{
-        margin-top: -91px;
-        margin-left: 0px;
-    }
-    .boost-table-secondary{
-        margin-left: -10px;
-        width: 110%
-    }
-    .boost-table-third{
-        margin-left: -10px;
-        width: 110%
-    }
-    .boost-table-big{
-        margin-left: -5px;
-        width: 104%;
-    }
-    .boost-job-first{
-        margin-left: 5px;
-    }
-    .boost-table-box{
-        margin-left: 50px;
-        width: 85%;
-    }
-    .boost-table-box input {
-        width: 85%;
-        margin-left:55px;
-    }
-    .boost-job-second{
-        width:102%;
-        margin-left: -21px;
-    }
-    .other-job-widget h2{
-        margin-left: -39px;
-        font-size: 39px;
-        margin-top: -97px;
-    }
-    .other-job-widget h2 span{
-        font-size: 49px;
-    }
-    .other-job-table{
-        width: 115%;
-    }
-
-    .nzherald-job-table{
-        width: 115%;
-    }
-
-    .nz-content span{
-        font-size: 22px;        
-    }
-
-    .nz-content p{
-        font-size: 22px;        
-    }
-
     /*style1starts here*/
     .right-nav h2 {
         font-size: 26px;
@@ -13115,6 +12645,10 @@ ul.boardy-dropdown li.active a{
         left: 185px;
         width: calc(100% - 500px);
     }
+    .navbar-collapse {
+        max-width: 675px !important;
+        float: left;
+    }
 }
 
 @media (max-width:1150px) {
@@ -13124,11 +12658,20 @@ ul.boardy-dropdown li.active a{
     .header-v2 .post-job {
         margin-left: 0;
     }
+     .left-head {
+        font-size: 22px;
+        line-height: 24pt;
+    }
+    .cta-open-search {
+        font-size: 11pt;
+        height: 33px;
+        visibility: visible;
+    }
 }
 
 @media (max-width:1025px) {
     .navbar-brand {
-        width: 169px;
+        width: 171px;
     }
     .navbar-nav {
         margin-left: 170px;
@@ -13160,9 +12703,6 @@ ul.boardy-dropdown li.active a{
     .test-author {
         margin-right: -22px;
     }
-    .sidebar-btn {
-        display: inline-block;
-    }
     ul#side-drop-menu {
         display: none;
     }
@@ -13176,7 +12716,7 @@ ul.boardy-dropdown li.active a{
     /*   .banner-text{ display: none;}
     .nav-right{ display: none;}*/
     body {
-        padding-top: 70px;
+        padding-top: 78px;
     }
     body.blue-blank-template .dynamic-content-holder {
         overflow: visible;
@@ -13185,11 +12725,14 @@ ul.boardy-dropdown li.active a{
         right: 25px;
     }
     #prefix_banner-container{
-        height: 690px;
+        height: 400px;
     }
     .slide-content h1 span{
-        font-size:54px;
-        line-height: 65px;
+        font-size:42px;
+        line-height: 58px;
+    }
+    #widget-search .row{
+        margin:0;
     }
     .slide-content h1 span{
         margin-left: 35px;
@@ -13227,11 +12770,10 @@ ul.boardy-dropdown li.active a{
     }
     #widget-search select,
     #widget-search input[type="text"] {
-        font-size: 22px;
         padding: 13px 12px 12px;
     }
     .banner-text {
-        top: -95px;
+        font-size: 18px;
         padding-right: 216px;
         padding-left: 38px;
     }
@@ -13361,9 +12903,6 @@ ul.boardy-dropdown li.active a{
         padding-right: 40px;
         background-color: transparent;
         padding-top: 6px;
-    }
-    #widget-search {
-        margin: 10px 0;
     }
     #site-social {
         margin-top: 20px;
@@ -13766,8 +13305,7 @@ ul.boardy-dropdown li.active a{
         width: 100%;
     }
     .left-head span {
-        line-height: 1.4;
-        padding: 7px 9px 6px 11px;
+       padding: 7px 9px 6px 11px;
     }
     #side-drop-menu li#AdvancedSearchFilter_PnlSalary .sbHolder a,
     .jxt-salary-bands .jxt-salary-min input,
@@ -13974,122 +13512,27 @@ ul.boardy-dropdown li.active a{
     .company-holder:nth-child(2n+1) {
         clear: clear;
     }
-
-    .boost-job-first{
-        margin-left: 0px;
-        margin-top: -80px;
+    #content-container {
+       padding-top: 20px;
     }
-    .boost-job-second{
-        margin-top: 130px;
-        margin-left: 0px;
-        width: 100%;
-        height: 100%;
+    .left-head {
+	    margin: 0 0 30px 0;
+	    clear: both;
     }
-    .boost-job-second h2{
-        margin-left: 25px;
+    .favourite-search-button {
+        width: 170px !important;
+        float: left;
     }
-    .other-job-widget{
-        margin-top: 200px;
-        margin-left: 0px;
-        width: 100%;
+    .create-alert-button {
+        width: 35% !important;
+        float: left;
+        margin-bottom: 30px;
     }
-    .other-job-widget h2{
-        margin-left: 16px;
-        margin-top: -166px;
-    }
-    .boost-table-secondary{
-        width: 85%;
-        margin-left: 30px;
-    }
-    .boost-table-third{
-        width: 85%;
-        margin-left: 30px;
-    }
-    .other-job-table{
-        width: 85%;
-        margin-left: 30px;
-    }
-    .nzherald-job-table{
-        width: 85%;
-        margin-left: 30px;
-    }
-    .boost-table-big{
-        margin-left: 30px;
-        width: 85%;
-    }
-    .boost-table-secondary h3 span{
-        font-size: 15px;
-    }
-    .boost-table-secondary img{
-        margin-left: 95px;
-        width: 70%;
-    }
-    .boost-table-secondary ul{
-        margin-left: 85px;
-    }
-    .boost-table-secondary input{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .boost-table-third h3 span{
-        font-size: 15px;
-    }
-    .boost-table-third img{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .boost-table-third ul{
-        margin-left: 85px;
-    }
-    .boost-table-third input{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .other-job-table h3 span{
-        font-size: 15px;
-    }
-    .other-job-table img{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .other-job-table ul{
-        margin-left: 85px;
-    }
-    .other-job-table input{
-        width: 85%;
-        margin-left: 55px;
+    .jobtype-search a {
+        font-size: 10pt;
+        padding-left: 18px;
     }
 
-
-    .nzherald-job-table h3 span{
-        font-size: 15px;
-    }
-    .nzherald-job-table img{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .nzherald-job-table ul{
-        margin-left: 85px;
-    }
-    .nzherald-job-table input{
-        margin-left: 55px;
-        width: 85%;
-    }
-
-    .boost-table-big h3 span{
-        font-size: 15px;
-    }
-    .boost-table-big img{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .boost-table-big ul{
-        margin-left: 85px;
-    }
-    .boost-table-big input{
-        margin-left: 95px;
-        width: 70%;
-    }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -14111,7 +13554,7 @@ ul.boardy-dropdown li.active a{
         line-height: 242px;
     }
     #myJobsList .imgwrap img{
-        max-height: 242px;
+        max-height: 14.95em
     }
 }
 
@@ -14177,10 +13620,16 @@ ul.boardy-dropdown li.active a{
         line-height: 1.25;
     }
     #prefix_banner-container{
-        height:780px;
+         height:550px;
+    }
+    .slide-content{
+        top: 25px;
+    }
+    .slide-content h1{
+        margin-bottom: 17px;
     }
     .slide-content h1 span{
-        font-size:40px;
+        font-size:36px;
         margin-left:17px;
     }
     .slide-content h1 span:first-child {
@@ -14190,8 +13639,8 @@ ul.boardy-dropdown li.active a{
         padding-bottom: 18px;
     }
     .slide-content h1 span{
-        line-height:57px;
-        padding: 9px 13px 12px;
+        line-height:50px;
+        padding: 9px 13px;
         letter-spacing:1px;
     }
     .r17_team-member-page .staff-holder {
@@ -14280,16 +13729,17 @@ ul.boardy-dropdown li.active a{
         width: 150px;
         margin: 0 auto;
     }
-    #prefix_banner-container .row {
-        margin-left: -25px;
-        margin-right: -25px;
-    }
     #widget-search select,
     .custom-select select,
     #footer-widget select {
         padding-right: 65px;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+    #widget-search select, #widget-search input[type="text"]{
+        height: 60px;
+        font-size: 24px;
+        line-height: 1.2;
     }
     #footer-widget select {
         height: 50px;
@@ -14447,20 +13897,31 @@ ul.boardy-dropdown li.active a{
         left: auto;
         right: 0;
     }
+	#widget-search .field-wrapper{
+	    width: 100%;
+	}
     #widget-search .form-group {
         margin-bottom: 15px;
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+    #widget-search .search-button {
+        width: 175px;
+        float: right;
+        margin-top: 5px;
     }
     #btn-widget-search {
-        margin-top: 0;
-        padding: 19px 53px 19px;
+		margin-top: 0;
+        padding: 15px;
         letter-spacing: 1px;
+        font-size: 20px;
+        height: auto;
     }
     .banner-text {
         display: none;
     }
-    .slide-content {
-        top: 50%;
-    }
+
     .sec-hub .heading-top {
         font-size: 38px;
     }
@@ -15009,10 +14470,6 @@ ul.boardy-dropdown li.active a{
         display: inline-block;
         width: 31%;
     }
-    .jobtype-search {
-        margin-bottom: 38px;
-        margin-top: 38px;
-    }
     li#AdvancedSearchFilter_PnlSalary {
         width: 60%;
     }
@@ -15275,85 +14732,9 @@ ul.boardy-dropdown li.active a{
     }
     .boost-job h2 span {
         font-size: 40px;
-    }    
-    .boost-job-second h2 span{
-        margin-left: 0px;
-        margin-top: 15px;
-        padding: 10px 1px;
-        font-size: 22px;
     }
     .boost-job h2 {
         margin-top: -147px;
-    }
-    .boost-job-first {        
-        margin-top: -110px;
-        margin-left: 0px;
-    }
-    .boost-table-box{
-        margin-left: 0px;
-        width: auto;
-        margin-bottom: 30px;
-    }
-    .boost-job-second{
-        margin-left: 0px;
-        width: 100%;
-        margin-top:75px;
-        padding: 0px 0px 0px 0px;
-    }
-    .boost-job-second h2{
-        margin-top: -43px;
-        margin-bottom: -16px;
-        margin-left: 0px;
-    }
-
-    .other-job-widget h2 span{
-        margin-left: 0px;
-        margin-top: 19px;   
-        padding: 12px 0px;
-        font-size: 17px;
-    }
-    .other-job-widget{
-        margin-left: 0px;
-        width: 100%;
-        margin-top:100px;
-        padding: 0px 0px 0px 0px;
-    }
-    .other-job-widget h2{
-        margin-top: -50px;
-        margin-bottom: -16px;
-        margin-left: -6px;
-    }
-
-    .boost-table-box h3 span{
-        font-size: 15px;
-    }
-    .boost-table-secondary{
-        width: 100%;
-        margin-top: 50px;
-        margin-left: -6px;
-    }
-    .boost-table-third{
-        width: 100%;
-        margin-top: 50px;
-        margin-left: -6px;
-    }
-    .other-job-table{
-        width: 100%;
-        margin-top: 50px;
-        margin-left: -6px;
-    }
-    
-    .nzherald-job-table{
-        width: 100%;
-        margin-top: 0px;
-        margin-left: -6px;
-        margin-bottom: 0px;
-    }   
-
-    .boost-table-big{
-        width: 100%;
-        margin-top: 50px;
-        margin-left: -6px;
     }
     .nz-news {
         padding: 15px 0 25px;
@@ -15536,8 +14917,7 @@ ul.boardy-dropdown li.active a{
         -webkit-transform: scaleX(1);
         transform: scaleX(1);
     }
-    #aspnetForm[action*="./?advertiserid="] .homenews-footer,
-    #aspnetForm[action*="./?companyid="] .homenews-footer{
+    #aspnetForm[action*="./?advertiserid="] .homenews-footer{
         margin-top:110px;
     }
     .right-nav {
@@ -15604,10 +14984,6 @@ ul.boardy-dropdown li.active a{
         padding-bottom: 14px;
     }
     /*style2 css ends here*/
-    .sidebar-btn {
-        display: inline-block;
-        margin-left: 15px;
-    }
     #side-drop-menu.active {
         display: none;
     }
@@ -15747,6 +15123,22 @@ ul.boardy-dropdown li.active a{
     body[class*="personality-"] #dynamic-container {
         min-height: 540px;
     }
+    #side-left {
+        padding-right: 0px;
+    }
+    #side-left>div {
+        padding-right: 0px;
+    }
+    #AdvancedSearchFilter_PnlKeywords {
+        margin-bottom: 30px !important;
+    }
+    #side-left { 
+        max-width: 300px;
+    }
+    
+    #ddlSalary {
+        border-bottom: 5px solid #fc3f35 !important;
+    }
 }
 
 @media screen and (max-width: 767px) and (orientation: landscape) {
@@ -15767,20 +15159,7 @@ ul.boardy-dropdown li.active a{
     }
 }
 @media screen and (max-width: 640px) {
-    #prefix_banner-container{
-        height:720px;
-    }
-    h1{
-        font-size: 36px;
-    }
-    .slide-content{
-        top: 51%;
-    }
-    .slide-content h1 span{
-        font-size:38px;
-        line-height: 50px;
-        margin-left: 5px;
-    }
+    
     .navbar-brand {
         width: 140px;
         height: 65px;
@@ -16037,133 +15416,11 @@ ul.boardy-dropdown li.active a{
 /* Mobile devices */
 
 @media screen and (max-width: 480px) {
-
-    .boost-table-big h3 span{
-        font-size: 15px;
-    }
-    .boost-table-big img{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .boost-table-big ul{
-        margin-left: 85px;
-    }
-    .boost-table-big input{
-        margin-left: 95px;
-        width: 70%;
-    }
-	
-	
-	
-	.nzherald-job-table h3 span{
-        font-size: 15px;
-    }
-    .nzherald-job-table img{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .nzherald-job-table ul{
-        margin-left: 85px;
-    }
-    .nzherald-job-table input{
-        margin-left: 55px;
-        width: 85%;
-    }
-	.nzherald-job-table{
-        width: 85%;
-        margin-left: 30px;
-    }
-	
-	
-	.other-job-table h3 span{
-        font-size: 15px;
-    }
-    .other-job-table img{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .other-job-table ul{
-        margin-left: 85px;
-    }
-    .other-job-table input{
-        width: 85%;
-        margin-left: 55px;
-    }
-	.other-job-table{
-        width: 85%;
-        margin-left: 30px;
-    }
-	
-	
-	.boost-table-third h3 span{
-        font-size: 15px;
-    }
-    .boost-table-third img{
-        width: 85%;
-        margin-left: 55px;
-    }
-    .boost-table-third ul{
-        margin-left: 85px;
-    }
-    .boost-table-third input{
-        width: 85%;
-        margin-left: 55px;
-    }
-	.boost-table-third{
-        width: 85%;
-        margin-left: 30px;
-    }
-	
-	
-	.boost-table-secondary h3 span{
-        font-size: 15px;
-    }
-    .boost-table-secondary img{
-        margin-left: 95px;
-        width: 70%;
-    }
-    .boost-table-secondary ul{
-        margin-left: 85px;
-    }
-    .boost-table-secondary input{
-        width: 85%;
-        margin-left: 55px;
-    }
-	.boost-table-secondary{
-        width: 85%;
-        margin-left: 30px;
-    }
-	
-	
-	.boost-table-big{
-        margin-left: 30px;
-        width: 85%;
-    }
-	.boost-table-big h3 span{
-        font-size: 15px;
-    }
-    .boost-table-big img{
-        margin-left: 95px;
-        width: 85%;
-    }
-    .boost-table-big ul{
-        margin-left: 85px;
-    }
-    .boost-table-big input{
-        width: 85%;
-        margin-left: 55px;
-    }
-
-
-
     body.blue-blank-template h1 span {
         font-size: 3.7rem;
     }
     #prefix_banner-container{
         height: 650px;
-    }
-    .slide-content {
-        top: 46%;
     }
     .slide-content h1{
         line-height: 1.05;
@@ -16245,7 +15502,7 @@ ul.boardy-dropdown li.active a{
         line-height: 52vw;
     }
     #myJobsList .imgwrap img{
-        max-height: 54vw;
+       	max-height: 14.95em;
     }
     .bannerjob-list .job-title h3,
     .bannerjob-list .job-title h3 a {
@@ -16334,7 +15591,6 @@ ul.boardy-dropdown li.active a{
     .job-pricing .banner-top h1 span:first-child {
         padding-top: 11px;
         padding-bottom: 12px;
-        font-size: 20px;
     }
     .banner-top .banner-desc {
         font-size: 14px;
@@ -16486,11 +15742,6 @@ ul.boardy-dropdown li.active a{
         padding: 0;
     }
     /*style2 ends here*/
-    .sidebar-btn {
-        display: block;
-        margin-left: 0;
-    }
-
     .custom-day{
         font-size: 20px;
     }
@@ -16615,123 +15866,6 @@ ul.boardy-dropdown li.active a{
         text-overflow: ellipsis;
         width: 100%;
     }
-
-
-    .boost-table-big h3 span{
-        font-size: 15px;
-    }
-    .boost-table-big img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
-    }
-    .boost-table-big input{
-        margin-left: 25px;
-        width: 85%;
-    }
-	
-	
-	
-	.nzherald-job-table h3 span{
-        font-size: 15px;
-    }
-    .nzherald-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .nzherald-job-table ul{
-        margin-left: 40px;
-    }
-    .nzherald-job-table input{
-        margin-left: 25px;
-        width: 85%;
-    }
-	.nzherald-job-table{
-        width: 85%;
-        margin-left: 30px;
-    }
-	
-	
-	.other-job-table h3 span{
-        font-size: 15px;
-    }
-    .other-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .other-job-table ul{
-        margin-left: 40px;
-    }
-    .other-job-table input{
-        width: 85%;
-        margin-left: 25px;
-    }
-	.other-job-table{
-        width: 85%;
-        margin-left: 30px;
-    }
-	
-	
-	.boost-table-third h3 span{
-        font-size: 15px;
-    }
-    .boost-table-third img{
-        width: 75%;
-        margin-left: 50px;
-    }
-    .boost-table-third ul{
-        margin-left: 40px;
-    }
-    .boost-table-third input{
-        width: 85%;
-        margin-left: 25px;
-    }
-	.boost-table-third{
-        width: 85%;
-        margin-left: 30px;
-    }
-	
-	
-	.boost-table-secondary h3 span{
-        font-size: 15px;
-    }
-    .boost-table-secondary img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-secondary ul{
-        margin-left: 40px;
-    }
-    .boost-table-secondary input{
-        width: 85%;
-        margin-left: 25px;
-    }
-	.boost-table-secondary{
-        width: 85%;
-        margin-left: 30px;
-    }
-	
-	
-	.boost-table-big{
-        margin-left: 30px;
-        width: 85%;
-    }
-	.boost-table-big h3 span{
-        font-size: 15px;
-    }
-    .boost-table-big img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
-    }
-    .boost-table-big input{
-        width: 85%;
-        margin-left: 25px;
-    }
     
 }
 @media screen and (max-width: 410px) {
@@ -16740,88 +15874,6 @@ ul.boardy-dropdown li.active a{
     }
     .autoslide > .job-block {
         max-width: 100%;
-    }
-    .boost-table-big img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
-    }  
-    .boost-table-big input{
-        margin-left: 25px;
-        width: 85%;
-    }
-	
-	
-
-    .nzherald-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .nzherald-job-table ul{
-        margin-left: 40px;
-    }
-    .nzherald-job-table input{
-        margin-left: 25px;
-        width: 85%;
-    }
-
-	
-	
-
-    .other-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .other-job-table ul{
-        margin-left: 40px;
-    }
-    .other-job-table input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-
-    .boost-table-third img{
-        width: 75%;
-        margin-left: 50px;
-    }
-    .boost-table-third ul{
-        margin-left: 40px;
-    }
-    .boost-table-third input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-
-    .boost-table-secondary img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-secondary ul{
-        margin-left: 40px;
-    }
-    .boost-table-secondary input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-	
-
-	.boost-table-big h3 span{
-        font-size: 15px;
-    }
-    .boost-table-big img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
     }
 }
 @media screen and (max-width: 395px) {
@@ -16860,94 +15912,12 @@ ul.boardy-dropdown li.active a{
     .btn-primary, .button a, .mini-new-buttons{
         margin-bottom: 5px;
     }
-    .boost-table-big img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
-    }  
-    .boost-table-big input{
-        margin-left: 25px;
-        width: 85%;
-    }
-	
-	
-
-    .nzherald-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .nzherald-job-table ul{
-        margin-left: 40px;
-    }
-    .nzherald-job-table input{
-        margin-left: 25px;
-        width: 85%;
-    }
-
-	
-	
-
-    .other-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .other-job-table ul{
-        margin-left: 40px;
-    }
-    .other-job-table input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-
-    .boost-table-third img{
-        width: 75%;
-        margin-left: 50px;
-    }
-    .boost-table-third ul{
-        margin-left: 40px;
-    }
-    .boost-table-third input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-
-    .boost-table-secondary img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-secondary ul{
-        margin-left: 40px;
-    }
-    .boost-table-secondary input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-	
-
-	.boost-table-big h3 span{
-        font-size: 15px;
-    }
-    .boost-table-big img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
-    }
 }
 
 @media screen and (max-width: 380px) {
     .container {
-        padding-left: 37.5px;
-        padding-right: 37.5px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     .home-job .row,
     .bunservices.row,
@@ -17011,7 +15981,7 @@ ul.boardy-dropdown li.active a{
         text-align: center;
     }
     .jobcounter {
-        font-size: 24px;
+        font-size: 28px;
     }
     /* .jobbg {
         height: 180px;
@@ -17028,89 +15998,6 @@ ul.boardy-dropdown li.active a{
     }
     .job-toplink a {
         font-size: 16px;
-    }
-
-    .boost-table-big img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
-    }  
-    .boost-table-big input{
-        margin-left: 25px;
-        width: 85%;
-    }
-	
-	
-
-    .nzherald-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .nzherald-job-table ul{
-        margin-left: 40px;
-    }
-    .nzherald-job-table input{
-        margin-left: 25px;
-        width: 85%;
-    }
-
-	
-	
-
-    .other-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .other-job-table ul{
-        margin-left: 40px;
-    }
-    .other-job-table input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-
-    .boost-table-third img{
-        width: 75%;
-        margin-left: 50px;
-    }
-    .boost-table-third ul{
-        margin-left: 40px;
-    }
-    .boost-table-third input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-
-    .boost-table-secondary img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-secondary ul{
-        margin-left: 40px;
-    }
-    .boost-table-secondary input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-	
-
-	.boost-table-big h3 span{
-        font-size: 15px;
-    }
-    .boost-table-big img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
     }
 }
 
@@ -17129,101 +16016,6 @@ ul.boardy-dropdown li.active a{
     #content .advertBasic .heading-section h1{
         font-size: 33px;
     }
-
-
-    .boost-table-big img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
-    }  
-    .boost-table-big input{
-        margin-left: 25px;
-        width: 85%;
-    }
-	
-	
-
-    .nzherald-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .nzherald-job-table ul{
-        margin-left: 40px;
-    }
-    .nzherald-job-table input{
-        margin-left: 25px;
-        width: 85%;
-    }
-
-	
-	
-
-    .other-job-table img{
-        width: 70%;
-        margin-left: 50px;
-    }
-    .other-job-table ul{
-        margin-left: 40px;
-    }
-    .other-job-table input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-
-    .boost-table-third img{
-        width: 75%;
-        margin-left: 50px;
-    }
-    .boost-table-third ul{
-        margin-left: 40px;
-    }
-    .boost-table-third input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-	
-
-    .boost-table-secondary img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-secondary ul{
-        margin-left: 40px;
-    }
-    .boost-table-secondary input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-    .boost-table-big img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-big ul{
-        margin-left: 40px;
-    }
-    .boost-table-big input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-    .boost-table-box input{
-        width: 85%;
-        margin-left: 25px;
-    }
-    .boost-table-box img{
-        margin-left: 50px;
-        width: 70%;
-    }
-    .boost-table-box ul{
-        margin-left: 40px;
-    }
-
 }
 
 @media screen and (max-width: 351px) {
@@ -17299,75 +16091,6 @@ ul.boardy-dropdown li.active a{
     .home-news{
         padding-bottom: 0;
     }
-
-    
-    .boost-table-big img{
-        width: 70%;
-        margin-left: 38px;
-    }
-    .boost-table-big ul{
-        margin-left: 28px;
-    }
-   
-    .nzherald-job-table img{
-        width: 70%;
-        margin-left: 38px;
-    }
-    .nzherald-job-table ul{
-        margin-left: 28px;
-    }
-    .nzherald-job-table input{
-        margin-left: 25px;
-        width: 85%;
-    }
-	
-    .other-job-table img{
-        width: 70%;
-        margin-left: 38px;
-    }
-    .other-job-table ul{
-        margin-left: 28px;
-    }
-    .other-job-table input{
-        width: 85%;
-        margin-left: 25px;
-    }
-
-    .boost-table-third img{
-        width: 75%;
-        margin-left: 38px;
-    }
-    .boost-table-third ul{
-        margin-left: 28px;
-    }
-    .boost-table-third input{
-        width: 85%;
-        margin-left: 25px;
-    }
-		
-    .boost-table-secondary img{
-        margin-left: 38px;
-        width: 70%;
-    }
-    .boost-table-secondary ul{
-        margin-left: 28px;
-    }
-    .boost-table-secondary input{
-        width: 85%;
-        margin-left: 25px;
-    }		
-	
-    .boost-table-big img{
-        margin-left: 38px;
-        width: 70%;
-    }
-    .boost-table-big ul{
-        margin-left: 28px;
-    }
-    .boost-table-big input{
-        width: 85%;
-        margin-left: 25px;
-    }
     
 }
 
@@ -17405,4 +16128,655 @@ ul.boardy-dropdown li.active a{
     #job-dynamic-container {
         padding-top: 0;
     }
+}
+
+#areaIDs {
+    margin-left: 0px !important;
+    text-indent: -0.95px !important;
+    padding-top: 10px !important;
+}
+#roleIDs {
+    padding-top: 10px !important;
+    padding-left: 4px !important;
+}
+.jobcounter span:nth-last-of-type(1) {
+    display: none !important;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+    #areaIDs {
+        text-indent: 3px !important;
+        padding-top: 10px !important;
+        margin-left: 0px !important;
+    }
+    #roleIDs {
+        padding-top: 9px !important;
+        padding-left: 9px !important;
+    }
+}
+#jxt-wrapper-bootstrap #content select.form-control {
+    margin-left: 0px !important;
+    text-indent: 0px !important;
+    padding-left: 6px !important;
+    padding-top: 5px !important;
+
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+    #jxt-wrapper-bootstrap #content select.form-control {
+        padding-left: 10px !important;
+        padding-top: 4px !important;
+    
+    }
+}
+label#ctl00_ContentPlaceHolder1_ucJobFields_lbProfession {
+  position: relative;
+  color: white;
+  min-width: 250px;
+}
+label#ctl00_ContentPlaceHolder1_ucJobFields_lbProfession:before {
+  position: absolute;
+  content: 'CLASSIFICATION / SUB-CLASSIFICATION';
+  left: 0;
+  top: 0;
+  color: #333;
+  display: block;
+  min-width: 300px;
+  white-space: nowrap;
+}
+label#ctl00_ContentPlaceHolder1_ucJobFields_lbProfession .form-required{
+  float: right;
+}
+#ctl00_ContentPlaceHolder1_ucJobFields_ddlApplicationMethod {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+#profilePic,#ctl00_ContentPlaceHolder1_imgMemberProfile {
+    height: 100% !important;
+}
+.hub-career-tool li {
+    cursor: pointer;
+}
+#hub-sidebar {
+    margin-top:0;
+}
+#hub-right-sidebar {
+    padding-top: 10px;
+}
+#hub-right-sidebar-news {
+    border-bottom: none;
+    margin-bottom: 0px !important;
+    padding-bottom: 14px !important;
+}
+.hub-news-img-sm {
+    width: 350px;
+    height: 200px;
+}
+.newsblockleft {
+    float: left;
+    width: 33%;
+    padding-bottom: 18px !important;
+    margin-bottom: 0px !important;
+}
+.hubnewsleftbox {
+    margin-right: 40px;
+}
+.newsblockstrech {
+    padding-bottom: 18px !important;
+    margin-bottom: 0px !important;
+}
+.hubnewsbg {
+    background: none;
+    background-color: none;
+}
+.rightcat-news {
+    clear: both;
+}
+.career-job {
+    clear: both;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.career-top-head {
+    background-color: #24d4ee !important;
+}
+.career-sec-h2 {
+    margin-top: 0 !important;
+}
+.career-blue-span {
+    margin-left: 544px !important;
+    top: 40px !important;
+}
+.btn-career-more {
+    background-color: #24d4ee !important;
+}
+.btn-career-more:hover {
+    background-color: #1ebad1 !important;
+}
+.btn-career-more:before {
+    background-color: #1ebad1 !important;
+}
+#hub-events-more {
+    left: 525px !important
+}
+.hub-more-news-continued {
+    background-color: #ffbc3f !important;
+}
+.career-news-block {
+    margin: 35px 0 0 0;
+}
+.careerblockleft {
+    float: left;
+    width: 29%;
+    padding-bottom: 18px !important;
+    margin-bottom: 0px !important;
+}
+.careerblockleft p a{
+    color: #24d4ee !important;
+}
+.careernewsbox {
+    margin-right: 30px;
+}
+.career-news-desc p {
+    margin: 5px 0 5px 0;
+}
+#career-news-desc a {
+    color: #021464;
+}
+.career-news-desc a:hover {
+    color: #fc3f35 !important;
+}
+.event-news-hub-left-col {
+    width: 30%;
+    float: left;
+    margin-bottom: 28px;
+}
+#event-news-main-block {
+    clear: both;
+}
+#hub-bottom-right-sidebar {
+    padding: 0;
+}
+.events-blue-span {
+    margin-top: 35px;
+    float: left;
+}
+#more-news-heading {
+    padding: 0;
+    margin: 0;
+}
+.more-news-wrap {
+    margin: 30px 0 0 0;
+}
+.more-news-clear-row {
+    clear: both;
+}
+.view-more-news {
+    clear: both;
+    width: 100%;
+    text-align: center;
+    margin: 30px 0 30px 0;
+    padding: 30px 0 0 0;
+}
+#btnviewmore {
+    background: #520265;
+    border-color: #520265;
+}
+#btnviewmore:hover {
+    border-color: #2e0239;
+}
+#btnviewmore:before {
+    background: #2e0239;
+}
+.more-news-block-left {
+    float: left;
+    width: 33%;
+    padding-bottom: 18px !important;
+    margin-bottom: 0px !important;
+}
+.categorynews-block .newsbg {
+    margin-top: 30px !important;
+}
+.carrer-left {
+    margin-bottom: 0px !important;
+}
+.pull-right {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.jobcounter span:nth-last-of-type(1) {
+    display: none !important;
+}
+#areaIDs {
+    margin-left: 2px !important;
+    text-indent: 0px !important;
+}
+.clear-row {
+    clear: both;
+}
+#hub-more-main-news {
+    padding: 0 15px;
+}
+#load-more-news {
+    clear: both;
+}
+#more-hub-right-sidebar-news {
+    width: 30%;
+    float: left;
+    border-bottom: none;
+    margin-bottom: 0px !important;
+    padding: 0 0 15px 15px;
+}
+#hub-bottom-right-sidebar .ad-sec {
+    margin: 40px 0 0 30px;
+    float: left;
+    position: relative;
+}
+#ctl00_ContentPlaceHolder1_ucJobFields_ddlApplicationMethod {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+#profilePic,#ctl00_ContentPlaceHolder1_imgMemberProfile {
+    height: 100% !important;
+}
+.newDash .table-bordered .TablePaginationFooter tr td {
+    padding-bottom: 75px;
+}
+.fa.fa-edit:hover,
+.fa.fa-edit:active,
+.fa.fa-edit:focus {
+    border-color: #db2e06;
+    background: #db2e06;
+    color: #ffffff;
+}
+@media (min-width: 1074px) {
+    .newsblockstrech img {
+       width: auto;
+       height: 445px;
+    }
+    .careerblockleft {
+        width: 28%;
+    }
+}
+@media (min-width:768px) and (max-width:991px) {
+    .leftnavigate {
+        padding: 0 0 0 0;
+        float: left;
+        width: 45%;
+    }
+}
+@media (max-width: 991px) {
+    .innernews-wrap .sec-btn {
+        margin-left: 297px;
+        top: 90px;
+    }
+    .rightcat-news {
+        width: 100% !important;
+    }
+    .career-blue-span {
+        margin-left: 410px !important;
+        top: 26px !important;
+    }
+    .careerblockleft {
+        width: 28%;
+    }
+    .events-blue-span {
+        margin-top: 22px;
+        margin-left: 20px;
+    }
+    #hub-more-main-news {
+        width: 49.50%;
+        float: left;
+        padding: 0 15px;
+        margin: 0 0 30px 0 !important;
+        height: 400px;
+    }
+    .more-news-block-left {
+        width: 100%;
+    }
+    .newsblockleft {
+        width: 49.50%;
+        margin-bottom: 30px !important;
+        padding-bottom: 0px !important;
+    }
+    .rightnews-list {
+        display: none;
+    }
+    .clear-row {
+        clear: none;
+    }
+    .newsbg {
+        margin-top: 0px !important;
+    }
+    #hub-bottom-right-sidebar .ad-sec {
+        margin: 40px 0 0 30px;
+        float: left;
+        position: relative;
+        clear: both;
+    }
+    .pull-right {
+        padding: 0 15px 0 0;
+    }
+    #more-news-right-sidebar {
+        clear: both;
+    }
+    #more-hub-right-sidebar-news {
+        width: 49.50%;
+        padding: 0 15px 0 55px;
+    }
+    .more-news-clear-row {
+        clear: none;
+    }
+    #hub-right-sidebar {
+        margin-top: 0px !important;
+    }
+    #load-more-news {
+        clear: both;
+    }
+    .view-more-news {
+        padding-top: 0px; 
+        margin-top: 0px;
+    }
+    #wd-gated-search #btn-widget-search {
+        margin-right: auto;
+    }
+    #wd-gated-search .innerbanner-search .col-sm-4.form-group {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .innernews-wrap .sec-btn {
+        margin-left: 190px;
+        top: 74px;
+        position: absolute;
+    }
+    .leftnavigate {
+        width: 100% !important;
+    }
+    #hub-right-sidebar-news {
+        width: 100%
+    }
+    .careerblockleft {
+        width: 100%;
+    }
+    .events-blue-span {
+        margin: 0 !important;
+    }
+    .career-newstop span:last-child {
+        padding: 10px !important;
+    }
+    .career-blue-span {
+        position: relative !important;
+        top: 0!important;
+        left: 0 !important;
+        padding: 0 !important;
+        float: left;
+        width: 100%;
+        margin: 0!important;
+    }
+    .newsblockleft {
+        width: 100% !important;
+    }
+    #top-news-row {
+        margin: 0 !important;
+    }
+    .categorynews-block .newsbg {
+        margin-bottom: 0px !important;
+    }
+    .event-news-hub-left-col {
+        margin-bottom: 0px !important;
+        width: 100%;
+    }
+    .banner-top h1 span {
+        line-height: 1.6;
+    }
+    .newsblock {
+        padding: 0px !important;
+    }
+    #more-hub-right-sidebar-news {
+        width: 100%;
+        padding-left: 15px !important;
+    }
+    #hub-more-main-news {
+        width: 100%;
+        height: auto;
+    }
+    .pull-right {
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+    #hub-bottom-right-sidebar .ad-sec {
+        margin-left: 15px !important;
+    }
+    #hub-right-sidebar {
+        margin-top: 30px;
+    }
+    .top-bluehead {
+        font-size: 31px !important;
+    }
+    .header-v2 .post-job li a {
+        max-width: 110px !important;
+        padding: 13px 10px 10px 10px !important;
+    }
+    #wd-gated-search header {
+        position: relative;
+        display: flex;
+        background: #24d4ee;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    #wd-gated-search .innerbanner-search #btn-widget-search {
+        float: none;
+        margin-right: auto;
+    }
+    #wd-gated-search .lbl-copy, #wd-gated-search .lbl-copy span {
+        font-size: 18px !important;    
+    }
+    #prefix_banner-container {
+        height: 450px;
+    }
+    #prefix_banner-container #widget-search select {
+        border-bottom: 2px solid #021464;
+    }
+    #prefix_banner-container #widget-search .form-group {
+        margin-bottom: 5px;
+    }
+    #prefix_banner-container .custom-select {
+        margin-bottom: 0px !important;
+    }
+    #prefix_banner-container #btn-widget-search {
+        margin-bottom: 2px;
+    }
+    #prefix_banner-container .slide-content .container {
+        padding-top: 0px !important;
+    }
+    #prefix_banner-container .search-button p a {
+        margin-top: 15px;
+        font-size: 13px;
+    }
+    #divNewsletter label {
+        width: 80%;
+        vertical-align: top;
+    }
+    #divNewsletter #ctl00_ContentPlaceHolder1_ckNewsletter {
+        margin-top: 0px;
+    }
+}
+@media screen and (min-width: 1023px) and (max-width: 1199px) {
+    .career-newstop .sec-btn {
+        top: 112px !important;
+    }
+}
+@media screen  and (min-width: 1199px) and (max-width: 1399px) {
+    .career-newstop .top-bluehead {
+        font-size: 52px !important;
+    }
+    .career-newstop .sec-btn {
+        top: 116px !important;
+    }
+}
+@media (min-width:768px) {
+    #prefix_banner-container #widget-search .form-group p a {
+        word-wrap: break-word;
+        text-align: center;
+        max-width: 100px;
+        white-space: normal;
+    }
+}
+@media (min-width:768px) and (max-width:1199px) {
+    .header-v2 .post-job li a {
+        max-width: 100px !important;
+        padding-top: 24px !important;
+    }
+    #prefix_banner-container #btn-widget-search {
+        padding: 14px 10px;
+        font-size: 20px;
+    }
+    #prefix_banner-container .search-button p a {
+        font-size: 11px;
+        padding: 1px 5px 0;
+    }
+}
+#Select1 {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    min-width: 95px !important;
+}
+@media (min-width: 1199px) {
+    .onetouch-jobbrowse #tab-3 ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        column-count: 6;
+        column-gap: 20px;
+    }
+    #prefix_banner-container .search-button p a {
+        font-size: 11px;
+        padding: 0;
+    }
+    #prefix_banner-container #btn-widget-search {
+        font-size: 20px;
+        padding: 14px 10px;
+    }
+}
+@media (min-width: 1074px) {
+    .dropdown-menu::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 10px;
+    }
+    .dropdown-menu::-webkit-scrollbar:vertical {
+        width: 10px;
+    }
+    .dropdown-menu::-webkit-scrollbar:horizontal {
+        height: 10px;
+    }
+    .dropdown-menu::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+    .dropdown-menu::-webkit-scrollbar-thumb:hover {
+        background-color: #7d7d7d;
+    }
+    .dropdown-menu::-webkit-scrollbar-track {
+        background-color: #ffffff;
+        border: 1px solid rgba(0,0,0,0.15);
+    }
+}
+#candidate-name span.txt-ellipsis{
+    display: inline;
+}
+#divNewsletter #ctl00_ContentPlaceHolder1_ckNewsletter, #ctl00_ContentPlaceHolder1_cbSubscribeJobAlert {
+    cursor: pointer;
+    left: 20px !important;
+}
+#divNewsletter label {
+    cursor: pointer;
+}
+.boardy-resume-options, #secExistingResume {
+    visibility: hidden;
+}
+.header-v2 .post-job li a {
+    word-wrap: break-word;
+    text-align: center;
+    line-height: 1.5;
+    padding-top: 20px;
+    max-width: 145px;
+}
+#wd-gated-search #btn-widget-search {
+    max-width: 243px;
+    width: 243px;
+    height: 53px;
+}
+.home-top-job-iframe .pull-right {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#topjobiflogo {
+    border-right: 1px solid #ff3d2b;
+}
+#default-page-top-banner {
+    background-image: url(../images/top-banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 410px;
+    position: relative;
+    overflow: hidden;
+}
+.default-page-template-container {
+    font-size: 16px;
+    font-weight: 600;
+    color: #011728;
+    padding: 94px 0;
+}
+.default-page-template-container p,h1,h2,h3,h4,h5,h6{
+    clear: both;
+    color: #011728;
+}
+.default-page-template-container img{
+    float: left; 
+    margin: 4px 10px 0px 0px; 
+}
+.default-page-template-container a {
+    background: #fee43d;
+}
+#ctl00_ContentPlaceHolder1_cbSubscribeJobAlert {
+    left: 20px !important;
+}
+.dropdown-header {
+    display: none !important;
+}
+@supports (-ms-ime-align: auto) {
+    /* Microsoft EdgeV13&14 CSS styles go here */
+    #divNewsletter #ctl00_ContentPlaceHolder1_ckNewsletter {
+        left: 0px !important;
+        top: -30px !important;
+    }
+    .checkbox label {
+        padding-left: 0px !important;
+    }
+    .boardy-apply-content .checkbox {
+        padding-left: 0px !important;
+    }
+ }
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10 & IE11 CSS styles go here */
+    #divNewsletter #ctl00_ContentPlaceHolder1_ckNewsletter {
+        left: 0px !important;
+        top: -30px !important;
+    }
+    .checkbox label {
+        padding-left: 0px !important;
+    }
+    .boardy-apply-content .checkbox {
+        padding-left: 0px !important;
+    }
+}
+@media (max-width: 375px) {
+	#myJobsList .imgwrap img {
+	    max-height: 14.95em !important;
+	}
 }
